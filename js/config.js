@@ -6,5 +6,5 @@ window.MH_CONFIG = {
   whatsapp: "56934615972",
   email: "",
   // Usuario de Instagram sin "@"
-  instagram: ""
+  instagram: "vcnt.martinez"
 };
