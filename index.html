@@ -5,7 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>MH Digital Studio | Web, equipos y consultoría TI para pymes</title>
   <meta name="description" content="Páginas web, mantención de computadores, consultoría TI y seguridad básica para pymes y emprendimientos en Chile. Un solo contacto para todo lo digital de tu negocio.">
-  <meta name="theme-color" content="#FBFCFF">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#FBFCFF" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0B1E4A" media="(prefers-color-scheme: dark)">
+  <script>
+    // Aplica el tema guardado antes de pintar, para evitar un parpadeo
+    try { var t = localStorage.getItem("mh-theme"); if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t); } catch (e) {}
+  </script>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="canonical" href="https://vmartinezh.github.io/">
 
@@ -33,9 +39,24 @@
     </button>
     <nav class="nav__links" id="nav-links" aria-label="Principal">
       <a href="#piezas">Servicios</a>
+      <a href="#modulos">Módulos</a>
       <a href="#proyectos">Proyectos</a>
       <a href="#instrucciones">Cómo trabajo</a>
       <a href="#contacto">Contacto</a>
+      <div class="theme" role="group" aria-label="Tema de colores">
+        <button type="button" class="theme__btn" data-theme-set="light" aria-pressed="false" title="Tema claro">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.5M12 19v2.5M2.5 12H5M19 12h2.5M5.3 5.3l1.8 1.8M16.9 16.9l1.8 1.8M5.3 18.7l1.8-1.8M16.9 7.1l1.8-1.8"/></svg>
+          <span class="sr-only">Claro</span>
+        </button>
+        <button type="button" class="theme__btn" data-theme-set="dark" aria-pressed="false" title="Tema oscuro (plano azul)">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></svg>
+          <span class="sr-only">Oscuro</span>
+        </button>
+        <button type="button" class="theme__btn" data-theme-set="system" aria-pressed="true" title="Igual que mi sistema">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.5" width="18" height="12" rx="2"/><path d="M8.5 20h7M12 16.5V20"/></svg>
+          <span class="sr-only">Sistema</span>
+        </button>
+      </div>
     </nav>
     <a class="btn btn--small js-wa" href="#contacto" data-msg="Hola MH Digital Studio, quiero hacer una consulta.">
       <svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp
@@ -211,77 +232,338 @@
       </div>
     </section>
 
+    <!-- MÓDULOS -->
+    <section class="modules" id="modulos" aria-labelledby="mod-title">
+      <div class="wrap">
+        <header class="section-head">
+          <h2 id="mod-title">Módulos que puedo instalar en tu sitio</h2>
+          <p>No es solo una página bonita: estas piezas trabajan por tu negocio. Pruébalas aquí mismo, funcionan con datos de ejemplo.</p>
+        </header>
+
+        <div class="bench">
+          <div class="bench__tabs" role="tablist" aria-label="Módulos de demostración" aria-orientation="vertical">
+            <button class="mtab" role="tab" id="tab-a" aria-controls="demo-a" aria-selected="true">
+              <span class="mtab__key">A</span>
+              <span class="mtab__txt"><strong>Catálogo con filtros</strong><small>Tus productos ordenados, con pedido directo.</small></span>
+            </button>
+            <button class="mtab" role="tab" id="tab-b" aria-controls="demo-b" aria-selected="false" tabindex="-1">
+              <span class="mtab__key">B</span>
+              <span class="mtab__txt"><strong>Agenda de horas</strong><small>Tus clientes reservan sin llamarte.</small></span>
+            </button>
+            <button class="mtab" role="tab" id="tab-c" aria-controls="demo-c" aria-selected="false" tabindex="-1">
+              <span class="mtab__key">C</span>
+              <span class="mtab__txt"><strong>Cotizador por pasos</strong><small>Llegan solicitudes claras, no "¿cuánto sale?".</small></span>
+            </button>
+            <button class="mtab" role="tab" id="tab-d" aria-controls="demo-d" aria-selected="false" tabindex="-1">
+              <span class="mtab__key">D</span>
+              <span class="mtab__txt"><strong>Antes y después</strong><small>Muestra tu trabajo deslizando una línea.</small></span>
+            </button>
+          </div>
+
+          <div class="browser">
+            <div class="browser__bar" aria-hidden="true">
+              <span class="browser__dots"><i></i><i></i><i></i></span>
+              <span class="browser__url">tunegocio.cl/<span class="js-url">catalogo</span></span>
+              <span class="browser__tag">Demostración</span>
+            </div>
+
+            <!-- A · Catálogo -->
+            <div class="demo" role="tabpanel" id="demo-a" aria-labelledby="tab-a">
+              <div class="cat__tools">
+                <label class="sr-only" for="cat-q">Buscar producto</label>
+                <input class="cat__search" id="cat-q" type="search" placeholder="Buscar en la tienda…" autocomplete="off">
+                <div class="cat__filters" role="group" aria-label="Categorías">
+                  <button type="button" class="pill" data-cat="all" aria-pressed="true">Todo</button>
+                  <button type="button" class="pill" data-cat="cafe" aria-pressed="false">Café</button>
+                  <button type="button" class="pill" data-cat="dulce" aria-pressed="false">Pastelería</button>
+                  <button type="button" class="pill" data-cat="regalo" aria-pressed="false">Regalos</button>
+                </div>
+              </div>
+              <ul class="cat__grid" id="cat-grid"></ul>
+              <p class="cat__empty" id="cat-empty" hidden>No hay productos con esa búsqueda. Prueba otra palabra.</p>
+              <p class="demo__note" id="cat-note" aria-live="polite">Toca "Pedir": en tu sitio abriría WhatsApp con el producto ya escrito.</p>
+            </div>
+
+            <!-- B · Agenda -->
+            <div class="demo" role="tabpanel" id="demo-b" aria-labelledby="tab-b" hidden>
+              <div class="agenda">
+                <div>
+                  <p class="demo__label" id="ag-days-l">1. Elige el día</p>
+                  <div class="agenda__days" id="ag-days" role="group" aria-labelledby="ag-days-l"></div>
+                  <p class="demo__label" id="ag-times-l">2. Elige la hora</p>
+                  <div class="agenda__times" id="ag-times" role="group" aria-labelledby="ag-times-l"></div>
+                  <p class="agenda__legend"><span class="lg lg--free"></span>Disponible <span class="lg lg--busy"></span>Ocupado</p>
+                </div>
+                <div class="agenda__ticket" aria-live="polite">
+                  <p class="demo__label">Tu reserva</p>
+                  <p class="agenda__summary" id="ag-sum">Elige un día y una hora.</p>
+                  <button type="button" class="btn btn--block" id="ag-ok" disabled>Confirmar reserva</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- C · Cotizador -->
+            <div class="demo" role="tabpanel" id="demo-c" aria-labelledby="tab-c" hidden>
+              <ol class="wiz__progress" aria-label="Progreso">
+                <li class="is-on">Tipo</li><li>Extras</li><li>Plazo</li>
+              </ol>
+              <form class="wiz" id="wiz" novalidate>
+                <fieldset class="wiz__step" data-step="1">
+                  <legend>¿Qué tipo de sitio necesitas?</legend>
+                  <div class="opts">
+                    <label class="opt"><input type="radio" name="tipo" value="Landing page"><span><strong>Landing page</strong><small>Una página para presentar y captar contactos.</small></span></label>
+                    <label class="opt"><input type="radio" name="tipo" value="Sitio corporativo"><span><strong>Sitio corporativo</strong><small>Varias secciones: empresa, servicios, contacto.</small></span></label>
+                    <label class="opt"><input type="radio" name="tipo" value="Catálogo o tienda"><span><strong>Catálogo o tienda</strong><small>Productos con fotos, categorías y pedidos.</small></span></label>
+                  </div>
+                </fieldset>
+                <fieldset class="wiz__step" data-step="2" hidden>
+                  <legend>¿Qué le sumamos?</legend>
+                  <div class="opts opts--grid">
+                    <label class="opt opt--check"><input type="checkbox" name="extra" value="Botón de WhatsApp"><span><strong>Botón de WhatsApp</strong></span></label>
+                    <label class="opt opt--check"><input type="checkbox" name="extra" value="Agenda de horas"><span><strong>Agenda de horas</strong></span></label>
+                    <label class="opt opt--check"><input type="checkbox" name="extra" value="Galería de trabajos"><span><strong>Galería de trabajos</strong></span></label>
+                    <label class="opt opt--check"><input type="checkbox" name="extra" value="Dos idiomas"><span><strong>Dos idiomas</strong></span></label>
+                    <label class="opt opt--check"><input type="checkbox" name="extra" value="Correos con mi dominio"><span><strong>Correos con mi dominio</strong></span></label>
+                    <label class="opt opt--check"><input type="checkbox" name="extra" value="Mantención mensual"><span><strong>Mantención mensual</strong></span></label>
+                  </div>
+                </fieldset>
+                <fieldset class="wiz__step" data-step="3" hidden>
+                  <legend>¿Para cuándo lo necesitas?</legend>
+                  <div class="opts">
+                    <label class="opt"><input type="radio" name="plazo" value="Sin apuro"><span><strong>Sin apuro</strong><small>Lo armamos con calma.</small></span></label>
+                    <label class="opt"><input type="radio" name="plazo" value="Este mes"><span><strong>Este mes</strong><small>Tengo una fecha en mente.</small></span></label>
+                    <label class="opt"><input type="radio" name="plazo" value="Lo antes posible"><span><strong>Lo antes posible</strong><small>Es urgente.</small></span></label>
+                  </div>
+                </fieldset>
+                <div class="wiz__done" data-step="4" hidden>
+                  <p class="demo__label">Tu solicitud</p>
+                  <ul class="wiz__sum" id="wiz-sum"></ul>
+                  <p class="demo__note">Este cotizador es real: el botón me envía tu solicitud por WhatsApp.</p>
+                </div>
+                <p class="wiz__error" id="wiz-err" role="alert" hidden></p>
+                <div class="wiz__nav">
+                  <button type="button" class="btn-ghost" id="wiz-back" hidden>Atrás</button>
+                  <button type="submit" class="btn" id="wiz-next">Siguiente</button>
+                </div>
+              </form>
+            </div>
+
+            <!-- D · Antes y después -->
+            <div class="demo" role="tabpanel" id="demo-d" aria-labelledby="tab-d" hidden>
+              <div class="compare" id="compare" style="--pos: 50%">
+                <svg class="compare__img compare__after" viewBox="0 0 600 340" role="img" aria-label="Después: sitio ordenado con título claro, botón de contacto y tres secciones alineadas.">
+                  <rect class="c-paper" x="0" y="0" width="600" height="340"/>
+                  <rect class="c-line" x="30" y="26" width="90" height="16" rx="3"/>
+                  <path class="c-line" d="M380 34 H420 M436 34 H476 M492 34 H532"/>
+                  <rect class="c-fill" x="30" y="76" width="300" height="34" rx="4"/>
+                  <path class="c-line" d="M30 128 H300 M30 144 H260"/>
+                  <rect class="c-accent" x="30" y="166" width="120" height="34" rx="8"/>
+                  <rect class="c-line" x="372" y="70" width="198" height="132" rx="8"/>
+                  <path class="c-line" d="M380 188 L430 140 L462 168 L492 146 L560 196"/>
+                  <rect class="c-line" x="30" y="236" width="170" height="78" rx="6"/>
+                  <rect class="c-line" x="215" y="236" width="170" height="78" rx="6"/>
+                  <rect class="c-line" x="400" y="236" width="170" height="78" rx="6"/>
+                  <text class="c-tag" x="570" y="328" text-anchor="end">DESPUÉS</text>
+                </svg>
+                <div class="compare__before" aria-hidden="true">
+                  <svg class="compare__img" viewBox="0 0 600 340">
+                    <rect class="c-paper c-paper--old" x="0" y="0" width="600" height="340"/>
+                    <rect class="c-old" x="22" y="18" width="560" height="44" rx="0"/>
+                    <path class="c-old" d="M40 40 H300" />
+                    <path class="c-old" d="M40 92 L250 86 M44 108 L190 112 M40 124 L270 118"/>
+                    <rect class="c-old" x="300" y="80" width="140" height="90" transform="rotate(4 370 125)"/>
+                    <rect class="c-old" x="420" y="96" width="150" height="120" transform="rotate(-3 495 156)"/>
+                    <path class="c-old" d="M40 160 L230 170 M40 178 L200 172 M40 196 L260 204"/>
+                    <rect class="c-old" x="60" y="232" width="90" height="26" transform="rotate(-6 105 245)"/>
+                    <path class="c-old" d="M190 236 H420 M180 252 H520 M200 268 H380 M170 284 H560 M220 300 H460"/>
+                    <text class="c-tag" x="30" y="328">ANTES</text>
+                  </svg>
+                </div>
+                <div class="compare__handle" aria-hidden="true"><span></span></div>
+                <label class="sr-only" for="cmp-range">Comparar antes y después</label>
+                <input class="compare__range" id="cmp-range" type="range" min="0" max="100" value="50">
+              </div>
+              <p class="demo__note">Arrastra la línea. Sirve para remodelaciones, estética, reparaciones o el rediseño de tu propio sitio.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- PROYECTOS -->
     <section class="projects" id="proyectos" aria-labelledby="proj-title">
       <div class="wrap">
-        <header class="section-head">
-          <h2 id="proj-title">Ya armados</h2>
-          <p>Proyectos reales, publicados y funcionando. Entra a verlos.</p>
+        <header class="section-head section-head--row">
+          <div>
+            <h2 id="proj-title">Ya armados</h2>
+            <p>Proyectos reales, publicados y funcionando.</p>
+          </div>
+          <div class="carousel__ctrl">
+            <button type="button" class="round" id="car-prev" aria-label="Proyecto anterior"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+            <div class="carousel__dots" id="car-dots" role="group" aria-label="Elegir proyecto">
+              <button type="button" class="dot" aria-label="Proyecto 1: M&amp;E Tecnología" aria-pressed="true">1</button>
+              <button type="button" class="dot" aria-label="Proyecto 2: Pequeninote" aria-pressed="false">2</button>
+              <button type="button" class="dot" aria-label="Proyecto 3: Vicente &amp; Rayssa" aria-pressed="false">3</button>
+            </div>
+            <button type="button" class="round" id="car-next" aria-label="Proyecto siguiente"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+          </div>
         </header>
 
-        <div class="figs">
-          <article class="fig fig--lead">
-            <figure class="fig__plate">
-            <a class="fig__frame" href="https://myetecnologia.cl" target="_blank" rel="noopener">
-              <img src="assets/proyectos/mye-tecnologia.png" width="1280" height="800" alt="Portada del sitio de M&amp;E Tecnología: titular 'Soluciones tecnológicas para tu empresa' sobre fondo de circuitos." loading="lazy">
-            </a>
-            <figcaption class="fig__cap">Fig. 1 · Sitio corporativo, myetecnologia.cl</figcaption>
-            </figure>
-            <div class="fig__info">
-              <h3>M&amp;E Tecnología</h3>
-              <p>Sitio corporativo para una empresa de equipamiento tecnológico: catálogo de categorías, cotizador interactivo y contacto directo por WhatsApp.</p>
-              <ul class="tags"><li>Sitio corporativo</li><li>Cotizador</li><li>SEO básico</li></ul>
-              <a class="link-arrow" href="https://myetecnologia.cl" target="_blank" rel="noopener">myetecnologia.cl</a>
-            </div>
-          </article>
+        <div class="carousel" id="carousel" role="region" aria-roledescription="carrusel" aria-label="Proyectos realizados">
+          <div class="carousel__track" id="car-track">
+            <article class="slide" role="group" aria-roledescription="diapositiva" aria-label="1 de 3">
+              <figure class="slide__plate">
+                <a class="fig__frame" href="https://myetecnologia.cl" target="_blank" rel="noopener">
+                  <img src="assets/proyectos/mye-tecnologia.png" width="1280" height="800" alt="Portada del sitio de M&amp;E Tecnología: titular 'Soluciones tecnológicas para tu empresa' sobre fondo de circuitos.">
+                </a>
+                <figcaption class="fig__cap">Fig. 1 · Sitio corporativo, myetecnologia.cl</figcaption>
+              </figure>
+              <div class="slide__info">
+                <h3>M&amp;E Tecnología</h3>
+                <p>Sitio corporativo para una empresa de equipamiento tecnológico de todo Chile.</p>
+                <p class="slide__k">Piezas instaladas</p>
+                <ul class="installed">
+                  <li>Catálogo de categorías</li>
+                  <li>Cotizador interactivo</li>
+                  <li>Contacto directo por WhatsApp</li>
+                  <li>SEO básico</li>
+                </ul>
+                <a class="link-arrow" href="https://myetecnologia.cl" target="_blank" rel="noopener">Visitar myetecnologia.cl</a>
+              </div>
+            </article>
 
-          <article class="fig">
-            <figure class="fig__plate">
-            <a class="fig__frame" href="https://vmartinezh.github.io/pequeninote/" target="_blank" rel="noopener">
-              <img src="assets/proyectos/pequeninote.png" width="1280" height="800" alt="Portada del sitio Pequeninote: titular sobre el aprendizaje de cada niño, en tonos cálidos." loading="lazy">
-            </a>
-            <figcaption class="fig__cap">Fig. 2 · Landing bilingüe, Pequeninote</figcaption>
-            </figure>
-            <div class="fig__info">
-              <h3>Pequeninote</h3>
-              <p>Landing para un servicio de apoyo pedagógico personalizado, bilingüe portugués y español, con planes y clase de prueba.</p>
-              <ul class="tags"><li>Landing</li><li>Bilingüe</li></ul>
-              <a class="link-arrow" href="https://vmartinezh.github.io/pequeninote/" target="_blank" rel="noopener">Ver sitio</a>
-            </div>
-          </article>
+            <article class="slide" role="group" aria-roledescription="diapositiva" aria-label="2 de 3" aria-hidden="true">
+              <figure class="slide__plate">
+                <a class="fig__frame" href="https://vmartinezh.github.io/pequeninote/" target="_blank" rel="noopener" tabindex="-1">
+                  <img src="assets/proyectos/pequeninote.png" width="1280" height="800" alt="Portada del sitio Pequeninote: titular sobre el aprendizaje de cada niño, en tonos cálidos." loading="lazy">
+                </a>
+                <figcaption class="fig__cap">Fig. 2 · Landing bilingüe, Pequeninote</figcaption>
+              </figure>
+              <div class="slide__info">
+                <h3>Pequeninote</h3>
+                <p>Landing para un servicio de apoyo pedagógico personalizado.</p>
+                <p class="slide__k">Piezas instaladas</p>
+                <ul class="installed">
+                  <li>Portugués y español con un toque</li>
+                  <li>Planes y clase de prueba</li>
+                  <li>Contacto directo</li>
+                </ul>
+                <a class="link-arrow" href="https://vmartinezh.github.io/pequeninote/" target="_blank" rel="noopener" tabindex="-1">Visitar el sitio</a>
+              </div>
+            </article>
 
-          <article class="fig">
-            <figure class="fig__plate">
-            <a class="fig__frame" href="https://vmartinezh.github.io/noivado/" target="_blank" rel="noopener">
-              <img src="assets/proyectos/noivado.png" width="1280" height="800" alt="Portada de la invitación digital Vicente &amp; Rayssa, con tipografía elegante sobre fondo café." loading="lazy">
-            </a>
-            <figcaption class="fig__cap">Fig. 3 · Invitación digital, Vicente &amp; Rayssa</figcaption>
-            </figure>
-            <div class="fig__info">
-              <h3>Vicente &amp; Rayssa</h3>
-              <p>Invitación digital de matrimonio con los detalles del evento y confirmación de asistencia, diseñada a medida.</p>
-              <ul class="tags"><li>Evento</li><li>Confirmación de asistencia</li></ul>
-              <a class="link-arrow" href="https://vmartinezh.github.io/noivado/" target="_blank" rel="noopener">Ver sitio</a>
-            </div>
-          </article>
+            <article class="slide" role="group" aria-roledescription="diapositiva" aria-label="3 de 3" aria-hidden="true">
+              <figure class="slide__plate">
+                <a class="fig__frame" href="https://vmartinezh.github.io/noivado/" target="_blank" rel="noopener" tabindex="-1">
+                  <img src="assets/proyectos/noivado.png" width="1280" height="800" alt="Portada de la invitación digital Vicente &amp; Rayssa, con tipografía elegante sobre fondo café." loading="lazy">
+                </a>
+                <figcaption class="fig__cap">Fig. 3 · Invitación digital, Vicente &amp; Rayssa</figcaption>
+              </figure>
+              <div class="slide__info">
+                <h3>Vicente &amp; Rayssa</h3>
+                <p>Invitación digital de matrimonio, diseñada a medida.</p>
+                <p class="slide__k">Piezas instaladas</p>
+                <ul class="installed">
+                  <li>Detalles del evento</li>
+                  <li>Confirmación de asistencia</li>
+                  <li>Diseño a medida</li>
+                </ul>
+                <a class="link-arrow" href="https://vmartinezh.github.io/noivado/" target="_blank" rel="noopener" tabindex="-1">Visitar el sitio</a>
+              </div>
+            </article>
+          </div>
         </div>
+        <p class="sr-only" aria-live="polite" id="car-live"></p>
       </div>
     </section>
 
     <!-- INSTRUCCIONES -->
     <section class="steps" id="instrucciones" aria-labelledby="steps-title">
       <div class="wrap">
-        <header class="section-head">
-          <h2 id="steps-title">Instrucciones de armado</h2>
-          <p>Cinco pasos, siempre los mismos. Sabes en cuál vamos y qué viene, sin sorpresas.</p>
+        <header class="section-head section-head--row">
+          <div>
+            <h2 id="steps-title">Instrucciones de armado</h2>
+            <p>Cinco pasos, siempre los mismos. Toca cada uno o mira el recorrido completo.</p>
+          </div>
+          <button type="button" class="btn-ghost" id="steps-play" aria-pressed="false">
+            <svg viewBox="0 0 24 24" aria-hidden="true" class="ico-play"><path d="M8 5.5v13l10-6.5z"/></svg>
+            <span>Ver recorrido</span>
+          </button>
         </header>
-        <ol class="steps__list">
-          <li class="step"><span class="step__num">1</span><h3>Conversamos</h3><p>Me cuentas qué necesitas por WhatsApp o en una llamada.</p></li>
-          <li class="step"><span class="step__num">2</span><h3>Propuesta</h3><p>Te envío alcance, plazo y valor por escrito.</p></li>
-          <li class="step"><span class="step__num">3</span><h3>Partimos</h3><p>Con el 50% de abono comenzamos el trabajo.</p></li>
-          <li class="step"><span class="step__num">4</span><h3>Ajustes</h3><p>Ves avances y tienes hasta dos rondas de cambios.</p></li>
-          <li class="step"><span class="step__num">5</span><h3>Entrega</h3><p>Pagas el 50% restante y te explico cómo usar todo.</p></li>
-        </ol>
+
+        <div class="track" role="tablist" aria-label="Pasos del proceso">
+          <div class="track__rail" aria-hidden="true"><span class="track__fill" id="track-fill"></span></div>
+          <button class="tstep" role="tab" id="st-1" aria-controls="sp" aria-selected="true"><span class="tstep__n">1</span><span class="tstep__t">Conversamos</span></button>
+          <button class="tstep" role="tab" id="st-2" aria-controls="sp" aria-selected="false" tabindex="-1"><span class="tstep__n">2</span><span class="tstep__t">Propuesta</span></button>
+          <button class="tstep" role="tab" id="st-3" aria-controls="sp" aria-selected="false" tabindex="-1"><span class="tstep__n">3</span><span class="tstep__t">Partimos</span></button>
+          <button class="tstep" role="tab" id="st-4" aria-controls="sp" aria-selected="false" tabindex="-1"><span class="tstep__n">4</span><span class="tstep__t">Ajustes</span></button>
+          <button class="tstep" role="tab" id="st-5" aria-controls="sp" aria-selected="false" tabindex="-1"><span class="tstep__n">5</span><span class="tstep__t">Entrega</span></button>
+        </div>
+
+        <div class="spanel" id="sp" role="tabpanel" aria-labelledby="st-1">
+          <figure class="spanel__fig" aria-hidden="true">
+            <svg class="kit build" id="build" data-stage="1" viewBox="0 0 640 540">
+              <defs>
+                <marker id="arrow2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                  <path d="M0 1 L9 5 L0 9" fill="none" stroke="#56658C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </marker>
+              </defs>
+              <g class="rig">
+              <g class="guides">
+                <path class="guide" d="M170 196 L262 286" marker-end="url(#arrow2)"/>
+                <path class="guide" d="M462 184 L392 284" marker-end="url(#arrow2)"/>
+                <path class="guide" d="M556 372 Q470 392 396 352" marker-end="url(#arrow2)"/>
+              </g>
+              <g class="piece b-equipos">
+                <rect class="shell" x="186" y="246" width="276" height="174" rx="12"/>
+                <rect class="screen" x="200" y="260" width="248" height="146" rx="4"/>
+                <rect class="slot" x="214" y="274" width="118" height="74" rx="4"/>
+                <rect class="slot" x="344" y="274" width="90" height="44" rx="4"/>
+                <rect class="slot" x="344" y="328" width="44" height="44" rx="4"/>
+                <path class="shell" d="M168 434 H480 L530 470 Q534 478 524 478 H124 Q114 478 118 470 Z"/>
+                <path class="detail" d="M286 452 H362"/>
+              </g>
+              <g class="piece b-web">
+                <rect class="shell" x="36" y="36" width="234" height="156" rx="10"/>
+                <path class="detail" d="M36 64 H270"/>
+                <circle class="detail" cx="54" cy="50" r="4"/><circle class="detail" cx="68" cy="50" r="4"/><circle class="detail" cx="82" cy="50" r="4"/>
+                <rect class="detail" x="100" y="44" width="150" height="12" rx="6"/>
+                <rect class="fill-line" x="54" y="82" width="112" height="14" rx="3"/>
+                <path class="detail" d="M54 110 H176 M54 124 H158"/>
+                <rect class="detail" x="54" y="144" width="74" height="26" rx="13"/>
+                <rect class="detail" x="186" y="82" width="66" height="60" rx="6"/>
+                <path class="detail" d="M190 134 L208 112 L222 126 L232 118 L248 134"/>
+              </g>
+              <g class="piece b-ti">
+                <rect class="shell" x="388" y="56" width="184" height="124" rx="10"/>
+                <path class="detail" d="M394 64 L480 126 L566 64"/>
+                <path class="detail" d="M394 174 L452 116 M566 174 L508 116"/>
+              </g>
+              <g class="piece b-seguridad">
+                <path class="detail" d="M534 306 V286 A28 28 0 0 1 590 286 V306"/>
+                <rect class="shell" x="516" y="304" width="92" height="76" rx="12"/>
+                <circle class="detail" cx="562" cy="334" r="9"/>
+                <path class="detail" d="M562 343 V360"/>
+              </g>
+              <g class="badge">
+                <circle cx="520" cy="452" r="34"/>
+                <path d="M503 452 l12 12 l22 -24"/>
+              </g>
+              </g>
+            </svg>
+            <figcaption class="fig__cap" id="build-cap">Fig. 4 · Piezas sueltas, recién conversadas</figcaption>
+          </figure>
+          <div class="spanel__txt">
+            <h3 id="sp-title">Conversamos</h3>
+            <p id="sp-desc">Me cuentas qué necesitas, para quién es y cómo trabajas hoy. Sin tecnicismos.</p>
+            <p class="spanel__get"><strong>Te llevas:</strong> <span id="sp-get">una idea clara de qué conviene y qué no.</span></p>
+            <div class="spanel__nav">
+              <button type="button" class="round" id="sp-prev" aria-label="Paso anterior"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+              <p class="spanel__status" aria-live="polite">Paso <span id="sp-n">1</span> de 5</p>
+              <button type="button" class="round" id="sp-next" aria-label="Paso siguiente"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -337,13 +619,16 @@
         <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true"><use href="#i-mh"/></svg>
         <span class="brand__name">MH Digital Studio</span>
       </a>
-      <p>Web, equipos, consultoría TI y seguridad para pymes en Chile.</p>
+      <p>Web, equipos, consultoría TI y seguridad para pymes en Chile. Armado a mano; no sobró ningún tornillo.</p>
       <p class="footer__copy">© <span id="year">2026</span> MH Digital Studio</p>
     </div>
   </footer>
 
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-    <symbol id="i-mh" viewBox="0 0 64 64"><rect width="64" height="64" rx="12" fill="#0A1638"/><path fill="#7CC0FF" d="M9 48V16h7l6 15 6-15h7v32h-6V28l-5 13h-4l-5-13v20zM38 48V16h6v13h7V16h6v32h-6V35h-7v13z"/></symbol>
+    <symbol id="i-mh" viewBox="0 0 64 64"><rect width="64" height="64" rx="12" style="fill:var(--logo-bg)"/><path style="fill:var(--logo-fg)" d="M9 48V16h7l6 15 6-15h7v32h-6V28l-5 13h-4l-5-13v20zM38 48V16h6v13h7V16h6v32h-6V35h-7v13z"/></symbol>
+    <symbol id="g-cafe" viewBox="0 0 64 64"><g class="art"><path d="M12 24h32v18a12 12 0 0 1-12 12h-8a12 12 0 0 1-12-12Z"/><path d="M44 28h4a6 6 0 0 1 0 12h-4"/><path d="M22 10c-3 4 3 6 0 10M32 10c-3 4 3 6 0 10"/></g></symbol>
+    <symbol id="g-dulce" viewBox="0 0 64 64"><g class="art"><path d="M10 34h44v18H10Z"/><path d="M10 34c0-10 8-16 22-16s22 6 22 16"/><path d="M10 43h44"/><path d="M32 10v8"/><circle cx="32" cy="8" r="2"/></g></symbol>
+    <symbol id="g-regalo" viewBox="0 0 64 64"><g class="art"><rect x="10" y="26" width="44" height="28" rx="2"/><rect x="6" y="18" width="52" height="10" rx="2"/><path d="M32 18v36"/><path d="M32 18c-4-10-16-10-14-2 1 3 8 3 14 2Zm0 0c4-10 16-10 14-2-1 3-8 3-14 2Z"/></g></symbol>
     <symbol id="p-web" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="56" height="42" rx="4"/><path d="M4 19h56"/><circle cx="9.5" cy="14.5" r="1.2"/><circle cx="14" cy="14.5" r="1.2"/><rect x="10" y="25" width="24" height="4" rx="1"/><path d="M10 34h26M10 39h20"/><rect x="10" y="44" width="16" height="5" rx="2.5"/><rect x="41" y="25" width="14" height="13" rx="2"/><path d="M42 36l4-5 3 3 2-2 3 4"/></g></symbol>
     <symbol id="p-equipos" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="12" y="12" width="40" height="28" rx="3"/><rect x="15" y="15" width="34" height="22" rx="1"/><rect x="18" y="18" width="16" height="10" rx="1" stroke-dasharray="2 2"/><rect x="36" y="18" width="10" height="6" rx="1" stroke-dasharray="2 2"/><path d="M9 45h46l6 6H3z"/><path d="M27 48h10"/></g></symbol>
     <symbol id="p-ti" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="14" width="52" height="36" rx="4"/><path d="M8 16l24 18 24-18M8 48l16-16M56 48L40 32"/></g></symbol>
