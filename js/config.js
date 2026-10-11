@@ -4,7 +4,7 @@
 window.MH_CONFIG = {
   // Número en formato internacional, sin "+", espacios ni guiones. Ej: 56912345678
   whatsapp: "56934615972",
-  email: "",
+  email: "vicentemartinez2131@gmail.com",
   // Usuario de Instagram sin "@"
   instagram: "vcnt.martinez"
 };
