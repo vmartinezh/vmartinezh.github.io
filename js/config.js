@@ -1,9 +1,10 @@
 // Datos de contacto de MH Digital Studio.
 // Cambia SOLO estos valores y todo el sitio se actualiza.
+// Si dejas el correo o el Instagram vacíos (""), ese canal no se muestra.
 window.MH_CONFIG = {
   // Número en formato internacional, sin "+", espacios ni guiones. Ej: 56912345678
-  whatsapp: "56900000000",
-  email: "tucorreo@ejemplo.cl",
+  whatsapp: "56934615972",
+  email: "",
   // Usuario de Instagram sin "@"
-  instagram: "tu_usuario"
+  instagram: ""
 };

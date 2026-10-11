@@ -21,6 +21,10 @@
     a.target = "_blank";
     a.rel = "noopener";
   });
+  // Canales sin dato configurado no se muestran
+  if (!cfg.email) document.querySelectorAll(".js-mail").forEach(function (a) { a.closest("li").remove(); });
+  if (!cfg.instagram) document.querySelectorAll(".js-ig").forEach(function (a) { a.closest("li").remove(); });
+
   document.querySelectorAll(".js-mail").forEach(function (a) {
     a.href = "mailto:" + cfg.email + "?subject=" + encodeURIComponent("Consulta desde el sitio web");
   });
