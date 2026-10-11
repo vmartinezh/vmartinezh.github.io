@@ -11,6 +11,15 @@
         ],
         "createdAt": "2026-10-11T03:49:45.445Z",
         "reason": "model decision: .tower and .about wrappers flagged, but each child .floor/.wrap carries its own 1.2-2.4rem inset; verified in mobile/desktop captures"
+      },
+      {
+        "rule": "codex-grid-background",
+        "value": "*",
+        "files": [
+          "css/styles.css"
+        ],
+        "createdAt": "2026-10-11T04:13:18.005Z",
+        "reason": "user chose 'Manual de armado' direction whose OWN-WORLD names grid paper as the ground"
       }
     ]
   }
