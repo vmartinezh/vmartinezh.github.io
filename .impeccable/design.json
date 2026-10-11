@@ -1,44 +1,90 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-11T00:00:00Z",
+  "generatedAt": "2026-10-11T12:00:00Z",
   "title": "Design System: MH Digital Studio",
   "extensions": {
+    "themes": {
+      "modes": ["light", "dark", "system"],
+      "default": "system",
+      "storage": "localStorage key \"mh-theme\" holds \"light\" or \"dark\"; absent means system.",
+      "application": "Inline head script sets data-theme on <html> before first paint. Tokens live in :root (light), :root[data-theme=\"dark\"], and @media (prefers-color-scheme: dark) :root:not([data-theme=\"light\"]). Frontmatter keys ending in -dark are the dark values of the same role.",
+      "cssVars": {
+        "paper": "--paper", "paper-tint": "--paper-2", "grid-line": "--grid", "sheet": "--sheet",
+        "ink": "--ink", "ink-soft": "--ink-2", "ink-muted": "--ink-3", "rule": "--rule",
+        "field-line": "--field-line", "placeholder": "--placeholder", "nav-bg": "--nav-bg",
+        "assembly-blue": "--blue", "assembly-blue-deep": "--blue-hover", "on-blue": "--on-blue",
+        "selection-wash": "--blue-soft", "guide-blue": "--blue-line",
+        "logo-bg": "--logo-bg", "logo-fg": "--logo-fg", "error-red": "--error", "shadow": "--shadow"
+      }
+    },
     "colorMeta": {
       "assembly-blue": { "role": "primary", "displayName": "Assembly Blue", "canonical": "#1D5FE6", "tonalRamp": ["oklch(15% 0.06 263)", "oklch(26% 0.11 263)", "oklch(38% 0.16 263)", "oklch(49% 0.2 263)", "oklch(61% 0.17 263)", "oklch(72% 0.12 263)", "oklch(84% 0.07 263)", "oklch(95% 0.025 263)"] },
       "assembly-blue-deep": { "role": "primary", "displayName": "Assembly Blue Deep", "canonical": "#1650C8", "tonalRamp": ["oklch(15% 0.06 264)", "oklch(26% 0.11 264)", "oklch(38% 0.16 264)", "oklch(49% 0.2 264)", "oklch(61% 0.17 264)", "oklch(72% 0.12 264)", "oklch(84% 0.07 264)", "oklch(95% 0.025 264)"] },
+      "on-blue": { "role": "primary", "displayName": "On Blue", "canonical": "#FFFFFF" },
       "selection-wash": { "role": "primary", "displayName": "Selection Wash", "canonical": "#DCE8FF", "tonalRamp": ["oklch(15% 0.035 265)", "oklch(26% 0.035 265)", "oklch(38% 0.035 265)", "oklch(49% 0.035 265)", "oklch(61% 0.035 265)", "oklch(72% 0.035 265)", "oklch(84% 0.035 265)", "oklch(95% 0.025 265)"] },
       "guide-blue": { "role": "primary", "displayName": "Guide Blue", "canonical": "#7CA6F2", "tonalRamp": ["oklch(15% 0.05 262)", "oklch(26% 0.08 262)", "oklch(38% 0.1 262)", "oklch(49% 0.12 262)", "oklch(61% 0.12 262)", "oklch(72% 0.12 262)", "oklch(84% 0.07 262)", "oklch(95% 0.025 262)"] },
       "paper": { "role": "neutral", "displayName": "Paper", "canonical": "#FBFCFF", "tonalRamp": ["oklch(15% 0.004 270)", "oklch(26% 0.004 270)", "oklch(38% 0.004 270)", "oklch(49% 0.004 270)", "oklch(61% 0.004 270)", "oklch(72% 0.004 270)", "oklch(84% 0.004 270)", "oklch(95% 0.004 270)"] },
       "paper-tint": { "role": "neutral", "displayName": "Paper Tint", "canonical": "#F1F5FF", "tonalRamp": ["oklch(15% 0.014 268)", "oklch(26% 0.014 268)", "oklch(38% 0.014 268)", "oklch(49% 0.014 268)", "oklch(61% 0.014 268)", "oklch(72% 0.014 268)", "oklch(84% 0.014 268)", "oklch(95% 0.014 268)"] },
       "grid-line": { "role": "neutral", "displayName": "Grid Line", "canonical": "rgba(29, 95, 230, 0.07)" },
-      "sheet-white": { "role": "neutral", "displayName": "Sheet White", "canonical": "#FFFFFF" },
+      "sheet": { "role": "neutral", "displayName": "Sheet", "canonical": "#FFFFFF" },
       "ink": { "role": "neutral", "displayName": "Navy Ink", "canonical": "#0A1638", "tonalRamp": ["oklch(15% 0.06 266)", "oklch(21% 0.07 266)", "oklch(32% 0.07 266)", "oklch(44% 0.065 266)", "oklch(56% 0.055 266)", "oklch(68% 0.045 266)", "oklch(82% 0.03 266)", "oklch(95% 0.012 266)"] },
       "ink-soft": { "role": "neutral", "displayName": "Ink Soft", "canonical": "#33446E", "tonalRamp": ["oklch(15% 0.05 267)", "oklch(26% 0.065 267)", "oklch(38% 0.07 267)", "oklch(49% 0.065 267)", "oklch(61% 0.055 267)", "oklch(72% 0.045 267)", "oklch(84% 0.03 267)", "oklch(95% 0.012 267)"] },
       "ink-muted": { "role": "neutral", "displayName": "Ink Muted", "canonical": "#56658C", "tonalRamp": ["oklch(15% 0.04 270)", "oklch(26% 0.05 270)", "oklch(38% 0.06 270)", "oklch(51% 0.06 270)", "oklch(61% 0.055 270)", "oklch(72% 0.045 270)", "oklch(84% 0.03 270)", "oklch(95% 0.012 270)"] },
       "rule": { "role": "neutral", "displayName": "Cut Line", "canonical": "rgba(10, 22, 56, 0.16)" },
-      "error-red": { "role": "error", "displayName": "Error Red", "canonical": "#B42318", "tonalRamp": ["oklch(15% 0.06 29)", "oklch(26% 0.1 29)", "oklch(38% 0.15 29)", "oklch(51% 0.18 29)", "oklch(61% 0.16 29)", "oklch(72% 0.11 29)", "oklch(84% 0.06 29)", "oklch(95% 0.02 29)"] }
+      "field-line": { "role": "neutral", "displayName": "Field Line", "canonical": "rgba(10, 22, 56, 0.35)" },
+      "placeholder": { "role": "neutral", "displayName": "Placeholder", "canonical": "#5C6A90" },
+      "nav-bg": { "role": "neutral", "displayName": "Nav Paper", "canonical": "rgba(251, 252, 255, 0.94)" },
+      "logo-bg": { "role": "brand", "displayName": "Logo Ground", "canonical": "#0A1638" },
+      "logo-fg": { "role": "brand", "displayName": "Logo Mark", "canonical": "#7CC0FF" },
+      "error-red": { "role": "error", "displayName": "Error Red", "canonical": "#B42318", "tonalRamp": ["oklch(15% 0.06 29)", "oklch(26% 0.1 29)", "oklch(38% 0.15 29)", "oklch(51% 0.18 29)", "oklch(61% 0.16 29)", "oklch(72% 0.11 29)", "oklch(84% 0.06 29)", "oklch(95% 0.02 29)"] },
+      "paper-dark": { "role": "neutral", "displayName": "Blueprint Paper", "canonical": "#0B1E4A", "tonalRamp": ["oklch(15% 0.08 264)", "oklch(22% 0.09 264)", "oklch(30% 0.1 264)", "oklch(42% 0.1 264)", "oklch(56% 0.09 264)", "oklch(70% 0.07 264)", "oklch(84% 0.04 264)", "oklch(95% 0.015 264)"] },
+      "paper-tint-dark": { "role": "neutral", "displayName": "Blueprint Paper Deep", "canonical": "#0A1A40" },
+      "grid-line-dark": { "role": "neutral", "displayName": "Blueprint Grid", "canonical": "rgba(190, 215, 255, 0.09)" },
+      "sheet-dark": { "role": "neutral", "displayName": "Blueprint Sheet", "canonical": "#0E2558" },
+      "ink-dark": { "role": "neutral", "displayName": "Pale Ink", "canonical": "#EAF2FF", "tonalRamp": ["oklch(15% 0.03 262)", "oklch(26% 0.04 262)", "oklch(38% 0.045 262)", "oklch(51% 0.045 262)", "oklch(63% 0.04 262)", "oklch(75% 0.035 262)", "oklch(87% 0.025 262)", "oklch(96% 0.015 262)"] },
+      "ink-soft-dark": { "role": "neutral", "displayName": "Pale Ink Soft", "canonical": "#C3D3F3" },
+      "ink-muted-dark": { "role": "neutral", "displayName": "Pale Ink Muted", "canonical": "#9AB0DA" },
+      "rule-dark": { "role": "neutral", "displayName": "Blueprint Cut Line", "canonical": "rgba(234, 242, 255, 0.2)" },
+      "field-line-dark": { "role": "neutral", "displayName": "Blueprint Field Line", "canonical": "rgba(234, 242, 255, 0.4)" },
+      "placeholder-dark": { "role": "neutral", "displayName": "Blueprint Placeholder", "canonical": "#93A9D6" },
+      "nav-bg-dark": { "role": "neutral", "displayName": "Blueprint Nav Paper", "canonical": "rgba(11, 30, 74, 0.94)" },
+      "assembly-blue-dark": { "role": "primary", "displayName": "Blueprint Line", "canonical": "#9CC6FF", "tonalRamp": ["oklch(15% 0.05 255)", "oklch(26% 0.08 255)", "oklch(38% 0.1 255)", "oklch(51% 0.11 255)", "oklch(63% 0.11 255)", "oklch(74% 0.1 255)", "oklch(84% 0.07 255)", "oklch(95% 0.025 255)"] },
+      "assembly-blue-deep-dark": { "role": "primary", "displayName": "Blueprint Line Hover", "canonical": "#B8D7FF" },
+      "on-blue-dark": { "role": "primary", "displayName": "On Blueprint Line", "canonical": "#0B1E4A" },
+      "selection-wash-dark": { "role": "primary", "displayName": "Blueprint Selection Wash", "canonical": "rgba(156, 198, 255, 0.2)" },
+      "guide-blue-dark": { "role": "primary", "displayName": "Blueprint Guide", "canonical": "#5E86C8" },
+      "logo-bg-dark": { "role": "brand", "displayName": "Logo Ground (dark)", "canonical": "#EAF2FF" },
+      "logo-fg-dark": { "role": "brand", "displayName": "Logo Mark (dark)", "canonical": "#1D5FE6" },
+      "error-red-dark": { "role": "error", "displayName": "Pale Coral", "canonical": "#FFADA3" }
     },
     "typographyMeta": {
       "display": { "displayName": "Display", "purpose": "Hero headline only; 2.35rem on phones; max 14ch." },
       "headline": { "displayName": "Headline", "purpose": "Section titles, always under the 3px ink section rule." },
-      "title": { "displayName": "Title", "purpose": "Part, project, step and form titles (1.3 to 2.1rem)." },
-      "number": { "displayName": "Number", "purpose": "Part, step and chip numbers inside line-only circles; normal width." },
-      "body": { "displayName": "Body", "purpose": "Running text; ledes 44ch, paragraphs 55 to 65ch." },
-      "label": { "displayName": "Label", "purpose": "Buttons, chips, nav links, form labels; sentence case." },
-      "caption": { "displayName": "Caption", "purpose": "Fig. captions, form hints, footer, in Ink Muted." }
+      "title": { "displayName": "Title", "purpose": "Part, project, step-panel, step and form titles (1.05 to 2.4rem); demo headings at 1.25rem, 105% width." },
+      "number": { "displayName": "Number", "purpose": "Part, step, callout and chip numbers, module keys A to D, carousel dots; normal width, sized to the circle." },
+      "body": { "displayName": "Body", "purpose": "Running text; ledes 44ch, paragraphs 46 to 65ch." },
+      "label": { "displayName": "Label", "purpose": "Buttons, chips, pills, tabs, nav links, form labels; sentence case." },
+      "caption": { "displayName": "Caption", "purpose": "Fig. captions, hints, demo notes, legends, footer, in Ink Muted." }
     },
     "shadows": [
-      { "name": "action-lift", "value": "0 8px 18px -10px rgba(10, 22, 56, 0.55)", "purpose": "Primary button at rest; hover 0 12px 22px -10px rgba(10, 22, 56, 0.6)." },
-      { "name": "plate-lift", "value": "0 14px 30px -18px rgba(10, 22, 56, 0.45)", "purpose": "Project screenshot frames; hover 0 20px 36px -18px rgba(10, 22, 56, 0.5)." },
-      { "name": "sheet-lift", "value": "0 18px 40px -26px rgba(10, 22, 56, 0.5)", "purpose": "The contact form sheet." },
-      { "name": "focus-halo", "value": "0 0 0 3px #DCE8FF", "purpose": "Input focus, with the border turned Assembly Blue." }
+      { "name": "shadow-color", "value": "var(--shadow)", "purpose": "One shadow color per theme. Dark: rgba(2, 8, 24, 0.7). Light: intended navy ink; the build currently declares it as a self-reference (invalid), see drift." },
+      { "name": "action-lift", "value": "0 8px 18px -10px var(--shadow)", "purpose": "Primary button at rest; hover 0 12px 22px -10px." },
+      { "name": "plate-lift", "value": "0 14px 30px -18px var(--shadow)", "purpose": "Project screenshot frames; hover 0 20px 36px -18px." },
+      { "name": "sheet-lift", "value": "0 18px 40px -26px var(--shadow)", "purpose": "The contact form sheet." },
+      { "name": "stage-lift", "value": "0 22px 44px -30px var(--shadow)", "purpose": "Browser demo frame; -32px spread on the step panel." },
+      { "name": "handle-lift", "value": "0 6px 14px -6px var(--shadow)", "purpose": "Compare slider handle." },
+      { "name": "focus-halo", "value": "0 0 0 3px var(--blue-soft)", "purpose": "Input focus with the border turned Assembly Blue; 6px on the current step circle." }
     ],
     "motion": [
       { "name": "ease-assembly", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "All state and arrival transitions." },
-      { "name": "state", "value": "0.2s", "purpose": "Button, chip, link and input state changes." },
+      { "name": "state", "value": "0.2s", "purpose": "Button, chip, pill, tab, link and input state changes." },
+      { "name": "theme-change", "value": "0.35s ease", "purpose": "Body background and text color when the theme switches." },
       { "name": "piece-travel", "value": "1s", "purpose": "Exploded-view pieces and callouts moving along their guides on load and on selection." },
-      { "name": "arrow-draw", "value": "0.8s, staggered 0.15s", "purpose": "Step arrows drawing in sequence when the list enters view." },
-      { "name": "reduced-motion", "value": "opacity 0.2s only", "purpose": "Replaces piece travel and smooth scroll under prefers-reduced-motion." }
+      { "name": "demo-in", "value": "0.45s, opacity plus 8px rise", "purpose": "Entering demo panels, option steps, product cards and the step-panel text." },
+      { "name": "slide", "value": "0.7s", "purpose": "Carousel track and step-rail fill." },
+      { "name": "assembly-stage", "value": "0.6 to 0.9s", "purpose": "Progressive assembly drawing moving between stages." },
+      { "name": "tour", "value": "2.6s per step, runs once", "purpose": "Reader-started step tour; stops at the last step or on any interaction." },
+      { "name": "reduced-motion", "value": "opacity 0.2s only", "purpose": "Replaces piece travel, demo entrances, slide and fill transitions, and smooth scroll." }
     ],
     "breakpoints": [
       { "name": "phone", "value": "640px" },
@@ -52,9 +98,9 @@
       "name": "Primary Button",
       "kind": "button",
       "refersTo": "button-primary",
-      "description": "Solid Assembly Blue action for every WhatsApp quote.",
-      "html": "<a class=\"ds-btn\" href=\"#\"><svg class=\"ds-ico\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linejoin=\"round\" d=\"M3 5.5h18v13H3zM3.5 6l8.5 7 8.5-7\"/></svg>Cotizar por WhatsApp</a>",
-      "css": ".ds-btn { display: inline-flex; align-items: center; gap: 0.6em; background: #1D5FE6; color: #fff; font: 700 1.0625rem/1 \"Hanken Grotesk\", system-ui, sans-serif; padding: 1em 1.4em; border: 0; border-radius: 10px; text-decoration: none; cursor: pointer; box-shadow: 0 8px 18px -10px rgba(10, 22, 56, 0.55); transition: background 0.2s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1); } .ds-btn:hover { background: #1650C8; transform: translateY(-1px); box-shadow: 0 12px 22px -10px rgba(10, 22, 56, 0.6); } .ds-btn:active { transform: translateY(1px); } .ds-btn:focus-visible { outline: 2.5px solid #1D5FE6; outline-offset: 3px; } .ds-ico { width: 1.15em; height: 1.15em; flex: none; }"
+      "description": "Solid Assembly Blue action for every WhatsApp quote; dashed and muted when disabled.",
+      "html": "<div style=\"display:flex;gap:1rem;flex-wrap:wrap\"><a class=\"ds-btn\" href=\"#\"><svg class=\"ds-ico\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linejoin=\"round\" d=\"M3 5.5h18v13H3zM3.5 6l8.5 7 8.5-7\"/></svg>Cotizar por WhatsApp</a><button class=\"ds-btn\" disabled>Siguiente</button></div>",
+      "css": ".ds-btn { display: inline-flex; align-items: center; gap: 0.6em; background: var(--blue, #1D5FE6); color: var(--on-blue, #fff); font: 700 1.0625rem/1 \"Hanken Grotesk\", system-ui, sans-serif; padding: 1em 1.4em; border: 0; border-radius: 10px; text-decoration: none; cursor: pointer; box-shadow: 0 8px 18px -10px rgba(10, 22, 56, 0.55); transition: background 0.2s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1); } .ds-btn:hover { background: var(--blue-hover, #1650C8); transform: translateY(-1px); box-shadow: 0 12px 22px -10px rgba(10, 22, 56, 0.6); } .ds-btn:active { transform: translateY(1px); } .ds-btn:focus-visible { outline: 2.5px solid var(--blue, #1D5FE6); outline-offset: 3px; } .ds-btn:disabled { background: transparent; color: var(--ink-3, #56658C); box-shadow: none; outline: 1.5px dashed var(--ink-3, #56658C); outline-offset: -1.5px; cursor: not-allowed; transform: none; } .ds-ico { width: 1.15em; height: 1.15em; flex: none; }"
     },
     {
       "name": "Outline Action",
@@ -62,47 +108,87 @@
       "refersTo": "button-outline",
       "description": "Per-part quote action; line only at rest, fills on hover.",
       "html": "<a class=\"ds-cta\" href=\"#\">Cotizar</a>",
-      "css": ".ds-cta { display: inline-flex; align-items: center; gap: 0.5em; font: 700 1rem/1 \"Hanken Grotesk\", system-ui, sans-serif; color: #1D5FE6; text-decoration: none; border: 1.5px solid #1D5FE6; border-radius: 8px; padding: 0.7em 1em; transition: background 0.2s, color 0.2s; } .ds-cta::after { content: \"\"; width: 0.45em; height: 0.45em; border: solid currentColor; border-width: 2px 2px 0 0; transform: rotate(45deg); } .ds-cta:hover { background: #1D5FE6; color: #fff; } .ds-cta:focus-visible { outline: 2.5px solid #1D5FE6; outline-offset: 3px; }"
+      "css": ".ds-cta { display: inline-flex; align-items: center; gap: 0.5em; font: 700 1rem/1 \"Hanken Grotesk\", system-ui, sans-serif; color: var(--blue, #1D5FE6); text-decoration: none; border: 1.5px solid var(--blue, #1D5FE6); border-radius: 8px; padding: 0.7em 1em; transition: background 0.2s, color 0.2s; } .ds-cta::after { content: \"\"; width: 0.45em; height: 0.45em; border: solid currentColor; border-width: 2px 2px 0 0; transform: rotate(45deg); } .ds-cta:hover { background: var(--blue, #1D5FE6); color: var(--on-blue, #fff); } .ds-cta:focus-visible { outline: 2.5px solid var(--blue, #1D5FE6); outline-offset: 3px; }"
     },
     {
-      "name": "Arrow Link",
-      "kind": "custom",
-      "refersTo": "link-arrow",
-      "description": "Ink text link with Guide Blue underline and a chevron that nudges on hover.",
-      "html": "<a class=\"ds-link\" href=\"#\">Ver qué incluye cada pieza</a>",
-      "css": ".ds-link { display: inline-flex; align-items: center; gap: 0.45em; color: #0A1638; font: 600 1.0625rem/1.6 \"Hanken Grotesk\", system-ui, sans-serif; text-decoration: underline; text-decoration-color: #7CA6F2; text-decoration-thickness: 1.5px; text-underline-offset: 0.2em; } .ds-link::after { content: \"\"; width: 0.5em; height: 0.5em; border: solid currentColor; border-width: 2px 2px 0 0; transform: rotate(45deg); transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1); } .ds-link:hover { text-decoration-color: #1D5FE6; } .ds-link:hover::after { transform: translateX(3px) rotate(45deg); } .ds-link:focus-visible { outline: 2.5px solid #1D5FE6; outline-offset: 3px; border-radius: 4px; }"
+      "name": "Ghost and Round Buttons",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Secondary ink-line action, and 44px round arrow buttons for carousel and step navigation.",
+      "html": "<div style=\"display:flex;gap:0.8rem;align-items:center\"><button class=\"ds-ghost\" type=\"button\">Atrás</button><button class=\"ds-round\" type=\"button\" aria-label=\"Anterior\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M15 5l-7 7 7 7\"/></svg></button><button class=\"ds-round\" type=\"button\" aria-label=\"Siguiente\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M9 5l7 7-7 7\"/></svg></button></div>",
+      "css": ".ds-ghost { display: inline-flex; align-items: center; gap: 0.5em; font: 700 1rem/1 \"Hanken Grotesk\", system-ui, sans-serif; color: var(--ink, #0A1638); background: var(--sheet, #fff); border: 1.5px solid var(--ink, #0A1638); border-radius: 10px; padding: 0.8em 1.1em; cursor: pointer; transition: border-color 0.2s, color 0.2s, background 0.2s; } .ds-ghost:hover { border-color: var(--blue, #1D5FE6); color: var(--blue, #1D5FE6); } .ds-ghost[aria-pressed=\"true\"] { background: var(--blue-soft, #DCE8FF); border-color: var(--blue, #1D5FE6); box-shadow: inset 0 0 0 1.5px var(--blue, #1D5FE6); } .ds-round { width: 44px; height: 44px; display: grid; place-items: center; border-radius: 50%; border: 1.5px solid var(--ink, #0A1638); background: var(--sheet, #fff); color: var(--ink, #0A1638); cursor: pointer; transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.2s cubic-bezier(0.16, 1, 0.3, 1); } .ds-round svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; } .ds-round:hover { border-color: var(--blue, #1D5FE6); color: var(--blue, #1D5FE6); } .ds-round:active { transform: scale(0.94); } .ds-ghost:focus-visible, .ds-round:focus-visible { outline: 2.5px solid var(--blue, #1D5FE6); outline-offset: 3px; }"
     },
     {
       "name": "Piece Chip",
       "kind": "chip",
       "refersTo": "chip-available",
-      "description": "Numbered piece toggle; available = line only, selected = Selection Wash fill plus heavy blue line. Number circle stays line-only.",
+      "description": "Numbered piece toggle; selected = Selection Wash fill plus heavy blue line, with the number circle filled solid blue.",
       "html": "<div style=\"display:flex;gap:0.5rem;flex-wrap:wrap\"><button type=\"button\" class=\"ds-chip\" aria-pressed=\"true\"><span class=\"ds-num\">1</span>Página web</button><button type=\"button\" class=\"ds-chip\" aria-pressed=\"false\"><span class=\"ds-num\">2</span>Computadores</button></div>",
-      "css": ".ds-chip { display: inline-flex; align-items: center; gap: 0.55em; font: 600 0.97rem/1 \"Hanken Grotesk\", system-ui, sans-serif; color: #0A1638; background: #fff; border: 1.5px solid #0A1638; border-radius: 8px; padding: 0.5em 0.85em 0.5em 0.5em; cursor: pointer; transition: background 0.2s, border-color 0.2s, color 0.2s; } .ds-chip:hover { border-color: #1D5FE6; color: #1D5FE6; } .ds-chip[aria-pressed=\"true\"] { background: #DCE8FF; border-color: #1D5FE6; color: #0A1638; box-shadow: inset 0 0 0 1.5px #1D5FE6; } .ds-chip:focus-visible { outline: 2.5px solid #1D5FE6; outline-offset: 3px; } .ds-num { display: inline-grid; place-items: center; width: 1.6em; height: 1.6em; border: 1.5px solid currentColor; border-radius: 50%; font: 800 0.85rem/1 Archivo, Arial, sans-serif; font-stretch: 100%; }"
+      "css": ".ds-chip { display: inline-flex; align-items: center; gap: 0.55em; font: 600 0.97rem/1 \"Hanken Grotesk\", system-ui, sans-serif; color: var(--ink, #0A1638); background: var(--sheet, #fff); border: 1.5px solid var(--ink, #0A1638); border-radius: 8px; padding: 0.5em 0.85em 0.5em 0.5em; cursor: pointer; transition: background 0.2s, border-color 0.2s, color 0.2s; } .ds-chip:hover { border-color: var(--blue, #1D5FE6); color: var(--blue, #1D5FE6); } .ds-chip[aria-pressed=\"true\"] { background: var(--blue-soft, #DCE8FF); border-color: var(--blue, #1D5FE6); color: var(--ink, #0A1638); box-shadow: inset 0 0 0 1.5px var(--blue, #1D5FE6); } .ds-chip:focus-visible { outline: 2.5px solid var(--blue, #1D5FE6); outline-offset: 3px; } .ds-num { display: inline-grid; place-items: center; width: 1.6em; height: 1.6em; border: 1.5px solid currentColor; border-radius: 50%; font: 800 0.85rem/1 Archivo, Arial, sans-serif; font-stretch: 100%; } .ds-chip[aria-pressed=\"true\"] .ds-num { background: var(--blue, #1D5FE6); border-color: var(--blue, #1D5FE6); color: var(--on-blue, #fff); }"
+    },
+    {
+      "name": "Demo Pills",
+      "kind": "chip",
+      "refersTo": "pill-available",
+      "description": "Filter and time choices; selected = fill plus heavy line, available = line, unavailable = dashed and struck through.",
+      "html": "<div style=\"display:flex;gap:0.45rem;flex-wrap:wrap\"><button class=\"ds-pill\" aria-pressed=\"true\">10:00</button><button class=\"ds-pill\" aria-pressed=\"false\">11:30</button><button class=\"ds-pill\" disabled>13:00</button></div>",
+      "css": ".ds-pill { font: 600 0.9rem/1 \"Hanken Grotesk\", system-ui, sans-serif; color: var(--ink, #0A1638); background: var(--sheet, #fff); border: 1.5px solid var(--ink, #0A1638); border-radius: 999px; padding: 0.5em 0.9em; cursor: pointer; font-variant-numeric: tabular-nums; transition: background 0.2s, border-color 0.2s, color 0.2s; } .ds-pill:hover:not(:disabled) { border-color: var(--blue, #1D5FE6); color: var(--blue, #1D5FE6); } .ds-pill[aria-pressed=\"true\"] { background: var(--blue-soft, #DCE8FF); border-color: var(--blue, #1D5FE6); box-shadow: inset 0 0 0 1.5px var(--blue, #1D5FE6); color: var(--ink, #0A1638); } .ds-pill:disabled { border-style: dashed; color: var(--ink-3, #56658C); border-color: var(--ink-3, #56658C); cursor: not-allowed; text-decoration: line-through; opacity: 0.75; } .ds-pill:focus-visible { outline: 2.5px solid var(--blue, #1D5FE6); outline-offset: 3px; }"
+    },
+    {
+      "name": "Theme Switch",
+      "kind": "custom",
+      "refersTo": "theme-switch-button",
+      "description": "Light, dark and system as three round line-icon buttons in an ink pill; pressed fills blue.",
+      "html": "<div class=\"ds-theme\" role=\"group\" aria-label=\"Tema de colores\"><button class=\"ds-theme__btn\" aria-pressed=\"false\" title=\"Tema claro\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"4\"/><path d=\"M12 2.5v2.5M12 19v2.5M2.5 12H5M19 12h2.5M5.3 5.3l1.8 1.8M16.9 16.9l1.8 1.8M5.3 18.7l1.8-1.8M16.9 7.1l1.8-1.8\"/></svg></button><button class=\"ds-theme__btn\" aria-pressed=\"false\" title=\"Tema oscuro\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z\"/></svg></button><button class=\"ds-theme__btn\" aria-pressed=\"true\" title=\"Igual que mi sistema\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><rect x=\"3\" y=\"4.5\" width=\"18\" height=\"12\" rx=\"2\"/><path d=\"M8.5 20h7M12 16.5V20\"/></svg></button></div>",
+      "css": ".ds-theme { display: inline-flex; gap: 2px; padding: 3px; border: 1.5px solid var(--ink, #0A1638); border-radius: 999px; background: var(--sheet, #fff); } .ds-theme__btn { width: 30px; height: 30px; display: grid; place-items: center; border: 0; border-radius: 50%; background: transparent; color: var(--ink-2, #33446E); cursor: pointer; transition: background 0.2s, color 0.2s; } .ds-theme__btn svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; } .ds-theme__btn:hover { color: var(--blue, #1D5FE6); } .ds-theme__btn[aria-pressed=\"true\"] { background: var(--blue, #1D5FE6); color: var(--on-blue, #fff); } .ds-theme__btn:focus-visible { outline: 2.5px solid var(--blue, #1D5FE6); outline-offset: 3px; }"
+    },
+    {
+      "name": "Module Tab and Browser Frame",
+      "kind": "custom",
+      "refersTo": "module-tab",
+      "description": "Lettered tab A to D beside a line-drawn browser frame tagged as a demonstration.",
+      "html": "<div style=\"display:grid;grid-template-columns:15rem 1fr;gap:1rem;align-items:start\"><button class=\"ds-mtab\" aria-selected=\"true\"><span class=\"ds-mkey\">A</span><span><strong>Catálogo con filtros</strong><small>Tus productos ordenados, con pedido directo.</small></span></button><div class=\"ds-browser\"><div class=\"ds-bar\"><span class=\"ds-dots\"><i></i><i></i><i></i></span><span class=\"ds-url\">tunegocio.cl/catalogo</span><span class=\"ds-dtag\">Demostración</span></div><div style=\"padding:1.2rem;min-height:6rem\"></div></div></div>",
+      "css": ".ds-mtab { display: flex; align-items: flex-start; gap: 0.8rem; text-align: left; width: 100%; background: var(--sheet, #fff); color: var(--ink, #0A1638); border: 1.5px solid var(--ink, #0A1638); border-radius: 10px; padding: 0.85rem 0.9rem; cursor: pointer; font: 400 1rem/1.4 \"Hanken Grotesk\", system-ui, sans-serif; transition: background 0.2s, border-color 0.2s, box-shadow 0.2s, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1); } .ds-mtab:hover { border-color: var(--blue, #1D5FE6); transform: translateX(3px); } .ds-mtab strong { display: block; font-weight: 700; line-height: 1.25; } .ds-mtab small { display: block; color: var(--ink-3, #56658C); font-size: 0.86rem; line-height: 1.35; margin-top: 0.2rem; } .ds-mkey { width: 30px; height: 30px; flex: none; display: grid; place-items: center; border-radius: 50%; border: 1.5px solid currentColor; font: 800 0.95rem/1 Archivo, Arial, sans-serif; } .ds-mtab[aria-selected=\"true\"] { background: var(--blue-soft, #DCE8FF); border-color: var(--blue, #1D5FE6); box-shadow: inset 0 0 0 1.5px var(--blue, #1D5FE6); } .ds-mtab[aria-selected=\"true\"] .ds-mkey { background: var(--blue, #1D5FE6); border-color: var(--blue, #1D5FE6); color: var(--on-blue, #fff); } .ds-mtab:focus-visible { outline: 2.5px solid var(--blue, #1D5FE6); outline-offset: 3px; } .ds-browser { background: var(--sheet, #fff); border: 2.5px solid var(--blue, #1D5FE6); border-radius: 12px; overflow: hidden; box-shadow: 0 22px 44px -30px rgba(10, 22, 56, 0.55); } .ds-bar { display: flex; align-items: center; gap: 0.8rem; padding: 0.6rem 0.9rem; border-bottom: 2px solid var(--blue, #1D5FE6); } .ds-dots { display: inline-flex; gap: 5px; } .ds-dots i { width: 9px; height: 9px; border-radius: 50%; border: 1.8px solid var(--blue, #1D5FE6); } .ds-url { flex: 1; min-width: 0; font: 400 0.82rem/1.4 \"Hanken Grotesk\", system-ui, sans-serif; color: var(--ink-3, #56658C); border: 1.5px solid var(--blue-line, #7CA6F2); border-radius: 999px; padding: 0.2em 0.8em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; } .ds-dtag { font: 700 0.75rem/1.4 \"Hanken Grotesk\", system-ui, sans-serif; color: var(--blue, #1D5FE6); border: 1.5px dashed var(--blue, #1D5FE6); border-radius: 6px; padding: 0.15em 0.5em; white-space: nowrap; }"
+    },
+    {
+      "name": "Option Card",
+      "kind": "custom",
+      "refersTo": "option-card",
+      "description": "Quote-builder radio or checkbox choice; checked takes the selected treatment.",
+      "html": "<div style=\"display:grid;gap:0.55rem;max-width:22rem\"><label class=\"ds-opt\"><input type=\"radio\" name=\"ds-t\" checked><span><strong>Sitio de una página</strong><small>Ideal para empezar</small></span></label><label class=\"ds-opt\"><input type=\"radio\" name=\"ds-t\"><span><strong>Sitio con secciones</strong><small>Servicios, galería y contacto</small></span></label></div>",
+      "css": ".ds-opt { position: relative; display: block; cursor: pointer; font: 400 1rem/1.4 \"Hanken Grotesk\", system-ui, sans-serif; color: var(--ink, #0A1638); } .ds-opt input { position: absolute; opacity: 0; inset: 0; cursor: pointer; margin: 0; } .ds-opt span { display: block; border: 1.5px solid var(--ink, #0A1638); border-radius: 10px; padding: 0.75rem 0.9rem 0.75rem 2.7rem; background: var(--paper, #FBFCFF); transition: background 0.2s, border-color 0.2s, box-shadow 0.2s; } .ds-opt span::before { content: \"\"; position: absolute; left: 0.9rem; top: 0.95rem; width: 18px; height: 18px; border: 1.5px solid var(--ink, #0A1638); border-radius: 50%; background: var(--sheet, #fff); } .ds-opt strong { display: block; font-weight: 700; } .ds-opt small { display: block; color: var(--ink-3, #56658C); font-size: 0.86rem; } .ds-opt:hover span { border-color: var(--blue, #1D5FE6); } .ds-opt input:focus-visible + span { outline: 2.5px solid var(--blue, #1D5FE6); outline-offset: 2px; } .ds-opt input:checked + span { background: var(--blue-soft, #DCE8FF); border-color: var(--blue, #1D5FE6); box-shadow: inset 0 0 0 1.5px var(--blue, #1D5FE6); } .ds-opt input:checked + span::before { background: var(--blue, #1D5FE6); border-color: var(--blue, #1D5FE6); box-shadow: inset 0 0 0 3px var(--sheet, #fff); }"
+    },
+    {
+      "name": "Step Rail",
+      "kind": "custom",
+      "refersTo": "number-circle-selected",
+      "description": "Five numbered steps over a dashed rail with a solid fill to the current step; passed steps blue line, current step filled with a halo.",
+      "html": "<div class=\"ds-track\"><div class=\"ds-rail\"><span class=\"ds-fill\" style=\"width:50%\"></span></div><button class=\"ds-tstep is-past\"><span class=\"ds-tn\">1</span></button><button class=\"ds-tstep is-past\"><span class=\"ds-tn\">2</span></button><button class=\"ds-tstep\" aria-selected=\"true\"><span class=\"ds-tn\">3</span></button><button class=\"ds-tstep\"><span class=\"ds-tn\">4</span></button><button class=\"ds-tstep\"><span class=\"ds-tn\">5</span></button></div>",
+      "css": ".ds-track { position: relative; display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.5rem; max-width: 560px; padding: 8px 0; } .ds-rail { position: absolute; left: 10%; right: 10%; top: 35px; height: 3px; background: linear-gradient(90deg, var(--blue-line, #7CA6F2) 55%, transparent 0) 0 0 / 10px 3px repeat-x; } .ds-fill { position: absolute; inset: 0 auto 0 0; background: var(--blue, #1D5FE6); transition: width 0.7s cubic-bezier(0.16, 1, 0.3, 1); } .ds-tstep { position: relative; display: grid; justify-items: center; background: none; border: 0; padding: 0; cursor: pointer; } .ds-tn { width: 56px; height: 56px; display: grid; place-items: center; border-radius: 50%; border: 2px solid var(--ink, #0A1638); background: var(--paper, #FBFCFF); color: var(--ink, #0A1638); font: 800 1.4rem/1 Archivo, Arial, sans-serif; font-stretch: 100%; transition: background 0.3s, color 0.3s, border-color 0.3s, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s; } .ds-tstep:hover .ds-tn { border-color: var(--blue, #1D5FE6); color: var(--blue, #1D5FE6); transform: translateY(-3px); } .ds-tstep.is-past .ds-tn { border-color: var(--blue, #1D5FE6); color: var(--blue, #1D5FE6); } .ds-tstep[aria-selected=\"true\"] .ds-tn { background: var(--blue, #1D5FE6); border-color: var(--blue, #1D5FE6); color: var(--on-blue, #fff); transform: scale(1.12); box-shadow: 0 0 0 6px var(--blue-soft, #DCE8FF); } .ds-tstep:focus-visible { outline: none; } .ds-tstep:focus-visible .ds-tn { outline: 2.5px solid var(--blue, #1D5FE6); outline-offset: 4px; }"
     },
     {
       "name": "Text Field",
       "kind": "input",
       "refersTo": "input",
-      "description": "Paper field with ink border; blue border and Selection Wash halo on focus.",
+      "description": "Paper field with field-line border; blue border and Selection Wash halo on focus.",
       "html": "<label class=\"ds-label\" for=\"ds-f\">Tu nombre</label><input id=\"ds-f\" class=\"ds-input\" placeholder=\"Ej: Vicente\">",
-      "css": ".ds-label { display: block; font: 600 0.95rem/1.4 \"Hanken Grotesk\", system-ui, sans-serif; color: #0A1638; margin: 0 0 0.4rem; } .ds-input { width: 100%; font: 400 1rem/1.4 \"Hanken Grotesk\", system-ui, sans-serif; color: #0A1638; background: #FBFCFF; border: 1.5px solid rgba(10, 22, 56, 0.35); border-radius: 8px; padding: 0.75em 0.9em; caret-color: #1D5FE6; transition: border-color 0.2s, box-shadow 0.2s; } .ds-input::placeholder { color: #5C6A90; } .ds-input:focus { outline: none; border-color: #1D5FE6; box-shadow: 0 0 0 3px #DCE8FF; } .ds-input[aria-invalid=\"true\"] { border-color: #B42318; }"
+      "css": ".ds-label { display: block; font: 600 0.95rem/1.4 \"Hanken Grotesk\", system-ui, sans-serif; color: var(--ink, #0A1638); margin: 0 0 0.4rem; } .ds-input { width: 100%; font: 400 1rem/1.4 \"Hanken Grotesk\", system-ui, sans-serif; color: var(--ink, #0A1638); background: var(--paper, #FBFCFF); border: 1.5px solid var(--field-line, rgba(10, 22, 56, 0.35)); border-radius: 8px; padding: 0.75em 0.9em; caret-color: var(--blue, #1D5FE6); transition: border-color 0.2s, box-shadow 0.2s; } .ds-input::placeholder { color: var(--placeholder, #5C6A90); } .ds-input:focus { outline: none; border-color: var(--blue, #1D5FE6); box-shadow: 0 0 0 3px var(--blue-soft, #DCE8FF); } .ds-input[aria-invalid=\"true\"] { border-color: var(--error, #B42318); }"
     },
     {
       "name": "Top Navigation",
       "kind": "nav",
       "refersTo": "nav",
-      "description": "Fixed paper bar with ink underline, brand left, links and small WhatsApp action right.",
-      "html": "<header class=\"ds-nav\"><a class=\"ds-brand\" href=\"#\"><svg width=\"36\" height=\"36\" viewBox=\"0 0 64 64\" aria-hidden=\"true\"><rect width=\"64\" height=\"64\" rx=\"12\" fill=\"#0A1638\"/><path fill=\"#7CC0FF\" d=\"M9 48V16h7l6 15 6-15h7v32h-6V28l-5 13h-4l-5-13v20zM38 48V16h6v13h7V16h6v32h-6V35h-7v13z\"/></svg><span>MH Digital Studio</span></a><nav class=\"ds-links\"><a href=\"#\">Piezas</a><a href=\"#\">Proyectos</a><a href=\"#\">Contacto</a></nav></header>",
-      "css": ".ds-nav { display: flex; align-items: center; gap: 1.5rem; padding: 12px 24px; background: rgba(251, 252, 255, 0.94); border-bottom: 1.5px solid #0A1638; } .ds-brand { display: inline-flex; align-items: center; gap: 0.6rem; text-decoration: none; color: #0A1638; font: 800 1rem/1 Archivo, Arial, sans-serif; font-stretch: 115%; letter-spacing: -0.01em; } .ds-links { display: flex; gap: 1.6rem; margin-left: auto; } .ds-links a { text-decoration: none; color: #33446E; font: 600 0.97rem/1 \"Hanken Grotesk\", system-ui, sans-serif; } .ds-links a:hover { color: #1D5FE6; } .ds-links a:focus-visible { outline: 2.5px solid #1D5FE6; outline-offset: 3px; border-radius: 4px; }"
+      "description": "Fixed paper bar with ink underline, brand left, links, theme switch and small WhatsApp action right.",
+      "html": "<header class=\"ds-nav\"><a class=\"ds-brand\" href=\"#\"><svg width=\"36\" height=\"36\" viewBox=\"0 0 64 64\" aria-hidden=\"true\"><rect width=\"64\" height=\"64\" rx=\"12\" fill=\"var(--logo-bg, #0A1638)\"/><path fill=\"var(--logo-fg, #7CC0FF)\" d=\"M9 48V16h7l6 15 6-15h7v32h-6V28l-5 13h-4l-5-13v20zM38 48V16h6v13h7V16h6v32h-6V35h-7v13z\"/></svg><span>MH Digital Studio</span></a><nav class=\"ds-links\"><a href=\"#\">Servicios</a><a href=\"#\">Módulos</a><a href=\"#\">Proyectos</a><a href=\"#\">Contacto</a></nav></header>",
+      "css": ".ds-nav { display: flex; align-items: center; gap: 1.5rem; padding: 12px 24px; background: var(--nav-bg, rgba(251, 252, 255, 0.94)); border-bottom: 1.5px solid var(--ink, #0A1638); } .ds-brand { display: inline-flex; align-items: center; gap: 0.6rem; text-decoration: none; color: var(--ink, #0A1638); font: 800 1rem/1 Archivo, Arial, sans-serif; font-stretch: 115%; letter-spacing: -0.01em; } .ds-links { display: flex; gap: 1.6rem; margin-left: auto; } .ds-links a { text-decoration: none; color: var(--ink-2, #33446E); font: 600 0.97rem/1 \"Hanken Grotesk\", system-ui, sans-serif; } .ds-links a:hover { color: var(--blue, #1D5FE6); } .ds-links a:focus-visible { outline: 2.5px solid var(--blue, #1D5FE6); outline-offset: 3px; border-radius: 4px; }"
     },
     {
       "name": "Parts Sheet",
       "kind": "card",
       "refersTo": "sheet",
-      "description": "White ink-bordered sheet; rows divided by dashed cut lines; number in a line-only circle.",
+      "description": "Ink-bordered sheet; rows divided by dashed cut lines; number in a line-only circle.",
       "html": "<ol class=\"ds-sheet\"><li class=\"ds-row\"><span class=\"ds-pnum\">1</span><h3>Desarrollo web</h3></li><li class=\"ds-row\"><span class=\"ds-pnum\">2</span><h3>Mantención de equipos</h3></li></ol>",
-      "css": ".ds-sheet { list-style: none; margin: 0; padding: 0; background: #fff; border: 1.5px solid #0A1638; border-radius: 12px; } .ds-row { display: flex; align-items: center; gap: 1.5rem; padding: 1.4rem 1.6rem; border-top: 1.5px dashed rgba(10, 22, 56, 0.16); } .ds-row:first-child { border-top: 0; } .ds-row h3 { margin: 0; font: 800 1.5rem/1.1 Archivo, Arial, sans-serif; font-stretch: 112%; color: #0A1638; } .ds-pnum { display: inline-grid; place-items: center; width: 52px; height: 52px; border: 2px solid #0A1638; border-radius: 50%; font: 800 1.5rem/1 Archivo, Arial, sans-serif; font-stretch: 100%; color: #0A1638; flex: none; }"
+      "css": ".ds-sheet { list-style: none; margin: 0; padding: 0; background: var(--sheet, #fff); border: 1.5px solid var(--ink, #0A1638); border-radius: 12px; } .ds-row { display: flex; align-items: center; gap: 1.5rem; padding: 1.4rem 1.6rem; border-top: 1.5px dashed var(--rule, rgba(10, 22, 56, 0.16)); } .ds-row:first-child { border-top: 0; } .ds-row h3 { margin: 0; font: 800 1.5rem/1.1 Archivo, Arial, sans-serif; font-stretch: 112%; color: var(--ink, #0A1638); } .ds-pnum { display: inline-grid; place-items: center; width: 52px; height: 52px; border: 2px solid var(--ink, #0A1638); border-radius: 50%; font: 800 1.5rem/1 Archivo, Arial, sans-serif; font-stretch: 100%; color: var(--ink, #0A1638); flex: none; }"
     },
     {
       "name": "Figure Plate",
@@ -110,52 +196,49 @@
       "refersTo": "fig",
       "description": "Real project screenshot in an ink frame with a Fig. caption.",
       "html": "<figure class=\"ds-fig\"><a class=\"ds-frame\" href=\"#\"><span class=\"ds-shot\"></span></a><figcaption class=\"ds-cap\">Fig. 1 · Sitio corporativo, myetecnologia.cl</figcaption></figure>",
-      "css": ".ds-fig { margin: 0; max-width: 420px; } .ds-frame { display: block; border: 1.5px solid #0A1638; border-radius: 10px; overflow: hidden; background: #fff; aspect-ratio: 16 / 10; box-shadow: 0 14px 30px -18px rgba(10, 22, 56, 0.45); transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1); } .ds-frame:hover { transform: translateY(-3px); box-shadow: 0 20px 36px -18px rgba(10, 22, 56, 0.5); } .ds-frame:focus-visible { outline: 2.5px solid #1D5FE6; outline-offset: 3px; } .ds-shot { display: block; width: 100%; height: 100%; background: #F1F5FF; } .ds-cap { margin-top: 0.6rem; font: 400 0.85rem/1.6 \"Hanken Grotesk\", system-ui, sans-serif; color: #56658C; }"
-    },
-    {
-      "name": "Tag",
-      "kind": "chip",
-      "refersTo": "tag",
-      "description": "Small line-only label under project names.",
-      "html": "<ul class=\"ds-tags\"><li>Sitio corporativo</li><li>SEO básico</li></ul>",
-      "css": ".ds-tags { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.4rem; } .ds-tags li { font: 600 0.82rem/1.6 \"Hanken Grotesk\", system-ui, sans-serif; color: #33446E; border: 1.5px solid rgba(10, 22, 56, 0.16); border-radius: 6px; padding: 0.15em 0.55em; background: #fff; }"
+      "css": ".ds-fig { margin: 0; max-width: 420px; } .ds-frame { display: block; border: 1.5px solid var(--ink, #0A1638); border-radius: 10px; overflow: hidden; background: var(--sheet, #fff); aspect-ratio: 16 / 10; box-shadow: 0 14px 30px -18px rgba(10, 22, 56, 0.45); transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1); } .ds-frame:hover { transform: translateY(-3px); box-shadow: 0 20px 36px -18px rgba(10, 22, 56, 0.5); } .ds-frame:focus-visible { outline: 2.5px solid var(--blue, #1D5FE6); outline-offset: 3px; } .ds-shot { display: block; width: 100%; height: 100%; background: var(--paper-2, #F1F5FF); } .ds-cap { margin-top: 0.6rem; font: 400 0.85rem/1.6 \"Hanken Grotesk\", system-ui, sans-serif; color: var(--ink-3, #56658C); }"
     }
   ],
   "narrative": {
     "northStar": "The Assembly Manual",
-    "overview": "The site reads like a printed assembly manual. White paper carries a faint blue 24px grid. Every object is a single-weight blue line drawing, every part has a number in a circle, and dotted guide lines with arrowheads show where each piece goes. Navy ink sets the text. MH does the assembling, and the page shows the parts, the finished builds and the numbered steps.\n\nDensity is calm and orderly. Sections open on a heavy ink rule like the heading of a manual page. Lists are bounded white sheets divided by dashed cut lines. Real project screenshots sit in thin ink frames with \"Fig. n\" captions. Color does nothing decorative: blue marks what is drawn, what is selected and what you can act on, and nothing else. The world rejects the generic agency landing page (split hero with a screen mockup, then a grid of icon cards).\n\nMotion follows the manual. On load, the exploded-view pieces slide in along their guides once. Choosing a piece fills it and moves it toward its place on the notebook while the others turn dashed. The dotted step arrows draw themselves in sequence.",
+    "overview": "The site reads like a printed assembly manual. White paper carries a faint blue 24px grid. Every object is a single-weight blue line drawing, every part has a number in a circle, and dotted guide lines with arrowheads show where each piece goes. Navy ink sets the text. MH does the assembling, and the page shows the parts, working demonstrations of them, the finished builds and the numbered steps.\n\nThe manual has two printings. The light theme is the printed manual: navy ink on white paper. The dark theme is the blueprint, a cyanotype: pale ink and pale blue line on deep blue paper with a pale grid. Both themes use the same roles and the same drawings, and only the token values change. The reader picks light, dark or system, and system is the default.\n\nDensity is calm and orderly. Sections open on a heavy ink rule like the heading of a manual page. Lists are bounded sheets divided by dashed cut lines. Real project screenshots sit in thin ink frames with \"Fig. n\" captions. Interactive demos sit in a line-drawn browser frame marked as a demonstration. Color does nothing decorative: blue marks what is drawn, what is selected and what you can act on, and nothing else. The world rejects the generic agency landing page (split hero with a screen mockup, then a grid of icon cards).\n\nMotion follows the manual. On load, the exploded-view pieces slide in along their guides once. Choosing a piece fills it and moves it toward its place on the notebook while the others turn dashed. Stepping through the instructions fills the step rail and assembles the drawing stage by stage. Nothing moves on its own except a guided tour the reader starts, which runs once and stops.",
     "keyCharacteristics": [
-      "White paper with a faint blue grid; navy ink text.",
+      "Two printings of one manual: white paper with navy ink, or blueprint paper with pale ink.",
       "Single-weight blue line drawing for every object and icon.",
-      "Part numbers in line-only circles, set in Archivo.",
+      "Part numbers and keys in circles, set in Archivo.",
       "Dotted guide lines and arrows to show sequence and placement.",
-      "A strict three-state vocabulary: selected, available, dimmed.",
+      "A strict state vocabulary: selected, available, dimmed.",
       "Expanded Archivo headings over Hanken Grotesk text."
     ],
     "rules": [
       { "name": "The One Blue Rule", "body": "Blue means drawn, chosen or actionable. It never appears as a background wash, a gradient or decoration.", "section": "colors" },
-      { "name": "The Navy Neutral Rule", "body": "Every gray is navy at reduced strength (Ink, Ink Soft, Ink Muted, Rule). Do not use neutral or warm grays.", "section": "colors" },
+      { "name": "The Ink Neutral Rule", "body": "Every gray is the ink at reduced strength (Ink, Ink Soft, Ink Muted, Rule, Field Line): navy on light paper, pale blue on blueprint paper. Do not use neutral or warm grays.", "section": "colors" },
+      { "name": "The Same Roles Rule", "body": "A theme changes token values, never roles. Components read only the role tokens, so every component, drawing and state works in both printings without a per-theme override.", "section": "colors" },
       { "name": "The Stamped Heading Rule", "body": "Every h1 to h3 is Archivo 800 at 112% width with balanced wrapping. Body text never uses Archivo.", "section": "typography" },
       { "name": "The Sentence Case Rule", "body": "No uppercase labels, no tracked-out small caps, and no kicker lines above headings. Each section opens with its heading directly under the rule.", "section": "typography" },
-      { "name": "The Line First Rule", "body": "A border separates things before a shadow does. Only the three roles above get shadows, and the parts list, chips, tags and nav stay flat.", "section": "elevation" },
-      { "name": "The Three States Rule", "body": "Selected = Selection Wash fill plus a heavy Assembly Blue line (a 3px effective border on chips, a 3.5px stroke on drawn pieces). Available = line only, with no fill change. Dimmed = dashed line at 40% opacity. No other state treatment exists.", "section": "shapes" },
-      { "name": "The Circled Number Rule", "body": "Part, step and callout numbers always sit in line-only circles in Archivo 800. The number marks a part. It is not a badge.", "section": "shapes" }
+      { "name": "The Line First Rule", "body": "A border separates things before a shadow does. Only the five roles above get shadows. The parts list, chips, pills, tabs, round buttons, option cards, product cards, tags and nav stay flat.", "section": "elevation" },
+      { "name": "The Three States Rule", "body": "Selected = Selection Wash fill plus a heavy Assembly Blue line (a 3px effective border on chips, pills, tabs and option cards; a 3.5px stroke on drawn pieces). Available = line only, with no fill change. Dimmed or unavailable = dashed line, muted ink (40% opacity on drawn pieces, struck-through text on unavailable pills). No other state treatment exists.", "section": "shapes" },
+      { "name": "The Selected Number Rule", "body": "A circle that marks a part or a choice is line-only at rest. When its item is selected, the circle fills solid Assembly Blue with On Blue content: chip numbers and callouts, module keys, the current step, the current carousel dot and the pressed theme button. Steps already passed keep a blue line without a fill. This fill is the selected state applied to the circle, not a badge.", "section": "shapes" },
+      { "name": "The Circled Number Rule", "body": "Part, step, callout and key numbers always sit in circles in Archivo 800 at 100% width. The number marks a part.", "section": "shapes" }
     ],
     "dos": [
       "Do draw every object as a single-weight Assembly Blue line with round caps (2px detail, 2.5px outline).",
-      "Do use exactly three states: Selection Wash fill plus heavy blue line for selected, line only for available, dashed at 40% for dimmed.",
-      "Do put part and step numbers in line-only circles in Archivo 800 at 100% width.",
+      "Do read only role tokens in components, so each one works in the printed and blueprint themes without overrides.",
+      "Do use exactly three states: Selection Wash fill plus heavy blue line for selected, line only for available, dashed and muted for dimmed or unavailable.",
+      "Do put part, step and key numbers in circles in Archivo 800 at 100% width, filling the circle solid blue only when its item is selected.",
       "Do open every section with a 3px Ink top rule followed directly by the Archivo headline.",
       "Do separate rows inside a sheet with 1.5px dashed Rule cut lines, and keep sheet borders at 1.5px solid Ink.",
-      "Do caption real project screenshots as \"Fig. n · description\".",
-      "Do let motion follow the guides: pieces arrive along their dotted lines once on load, and nothing loops."
+      "Do caption real project screenshots and the assembly drawing as \"Fig. n · description\".",
+      "Do put interactive demos inside the line-drawn browser frame with its \"Demostración\" tag.",
+      "Do let motion follow the guides: pieces arrive along their dotted lines once on load, and nothing advances or loops on its own."
     ],
     "donts": [
       "Don't add uppercase kickers or eyebrow labels above headings.",
-      "Don't fill shapes with Assembly Blue to show emphasis. Solid blue is reserved for the primary action and the outline action's hover.",
-      "Don't use filled, duotone or glyph icons. Icons are inline SVG line drawings at 1.8 stroke, except the WhatsApp brand mark.",
-      "Don't use hard offset shadows or add shadows beyond the action, plate and sheet roles.",
-      "Don't use dashed lines for anything that is selected or active. Dashed means guide, cut line or dimmed.",
+      "Don't fill shapes with Assembly Blue to show emphasis. Solid blue is reserved for the primary action, outline-action hover, selected circles and toggles, the step rail fill and the compare handle.",
+      "Don't use filled, duotone or glyph icons. Icons are inline SVG line drawings at 1.8 to 2 stroke, except the WhatsApp brand mark.",
+      "Don't use hard offset shadows or add shadows beyond the action, plate, sheet, stage and handle roles.",
+      "Don't use dashed lines for anything that is selected or active. Dashed means guide, cut line, not yet done, or dimmed.",
+      "Don't give a theme its own colors for a role, or its own component styles. Change the token value, never the role.",
       "Don't build the split hero with a screen mockup followed by a grid of icon cards."
     ]
   }
