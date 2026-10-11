@@ -1,0 +1,7 @@
+﻿.impeccable/review/
+.impeccable/decision/
+.impeccable/mocks/
+
+.claude/
+.impeccable/hook.cache.json
+.impeccable/questions/

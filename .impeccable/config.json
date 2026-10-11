@@ -1,0 +1,17 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-10-11T03:49:45.445Z",
+        "reason": "model decision: .tower and .about wrappers flagged, but each child .floor/.wrap carries its own 1.2-2.4rem inset; verified in mobile/desktop captures"
+      }
+    ]
+  }
+}
